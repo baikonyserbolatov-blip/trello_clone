@@ -978,157 +978,292 @@
             </div>
         </div>
     </div>
+<script>
+    // User management
+    let users = JSON.parse(localStorage.getItem('trello_users')) || [];
+    let currentUser = null;
 
-    <script>
-        // Initialize animations and effects
-        function initAnimations() {
-            createFloatingElements();
-            createParticles();
-            setupScrollEffects();
+    // Initialize animations and effects
+    function initAnimations() {
+        createFloatingElements();
+        createParticles();
+        setupScrollEffects();
+        checkAuthStatus();
+    }
+
+    // Check if user is already logged in
+    function checkAuthStatus() {
+        const savedUser = localStorage.getItem('trello_current_user');
+        if (savedUser) {
+            currentUser = JSON.parse(savedUser);
+            showApp();
         }
+    }
 
-        // Create floating elements in hero section
-        function createFloatingElements() {
-            const container = document.getElementById('floatingElements');
-            const elements = ['🎯', '🚀', '⭐', '💫', '🔮', '🎨', '⚡', '💡'];
-            
-            for (let i = 0; i < 15; i++) {
-                const element = document.createElement('div');
-                element.className = 'floating-element';
-                element.textContent = elements[Math.floor(Math.random() * elements.length)];
-                element.style.width = Math.random() * 60 + 30 + 'px';
-                element.style.height = element.style.width;
-                element.style.left = Math.random() * 100 + '%';
-                element.style.top = Math.random() * 100 + '%';
-                element.style.animationDelay = Math.random() * 20 + 's';
-                element.style.fontSize = (Math.random() * 20 + 16) + 'px';
-                element.style.opacity = Math.random() * 0.3 + 0.1;
-                container.appendChild(element);
-            }
+    // Create floating elements in hero section
+    function createFloatingElements() {
+        const container = document.getElementById('floatingElements');
+        const elements = ['🎯', '🚀', '⭐', '💫', '🔮', '🎨', '⚡', '💡'];
+        
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.textContent = elements[Math.floor(Math.random() * elements.length)];
+            element.style.width = Math.random() * 60 + 30 + 'px';
+            element.style.height = element.style.width;
+            element.style.left = Math.random() * 100 + '%';
+            element.style.top = Math.random() * 100 + '%';
+            element.style.animationDelay = Math.random() * 20 + 's';
+            element.style.fontSize = (Math.random() * 20 + 16) + 'px';
+            element.style.opacity = Math.random() * 0.3 + 0.1;
+            container.appendChild(element);
         }
+    }
 
-        // Create particle background
-        function createParticles() {
-            const container = document.getElementById('particles');
-            
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.width = Math.random() * 5 + 2 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                container.appendChild(particle);
-            }
+    // Create particle background
+    function createParticles() {
+        const container = document.getElementById('particles');
+        
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 5 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            container.appendChild(particle);
         }
+    }
 
-        // Scroll effects for header
-        function setupScrollEffects() {
-            const header = document.getElementById('header');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
-
-        // Modal functions
-        function openModal(type) {
-            closeModal();
-            if (type === 'login') {
-                document.getElementById('loginModal').style.display = 'flex';
-            } else if (type === 'register') {
-                document.getElementById('registerModal').style.display = 'flex';
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('registerModal').style.display = 'none';
-        }
-
-        function switchToRegister() {
-            closeModal();
-            openModal('register');
-        }
-
-        function switchToLogin() {
-            closeModal();
-            openModal('login');
-        }
-
-        // Auth functions
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            simulateLogin();
-        });
-
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            simulateRegister();
-        });
-
-        function simulateLogin() {
-            // Simulate successful login
-            document.querySelector('.header').style.display = 'none';
-            document.querySelector('.hero').style.display = 'none';
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById('appContainer').style.display = 'block';
-            closeModal();
-            
-            // Show success animation
-            showSuccessAnimation();
-        }
-
-        function simulateRegister() {
-            simulateLogin();
-        }
-
-        function showSuccessAnimation() {
-            // Create success animation
-            const successDiv = document.createElement('div');
-            successDiv.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(255, 255, 255, 0.95);
-                padding: 40px;
-                border-radius: 20px;
-                text-align: center;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-                z-index: 3000;
-                animation: successEnter 0.5s ease;
-            `;
-            successDiv.innerHTML = `
-                <div style="font-size: 60px; margin-bottom: 20px;">🎉</div>
-                <h3 style="color: #36B37E; margin-bottom: 10px;">Сәтті тіркелдіңіз!</h3>
-                <p>Trello Pro әлеміне қош келдіңіз</p>
-            `;
-            document.body.appendChild(successDiv);
-            
-            setTimeout(() => {
-                successDiv.remove();
-            }, 2000);
-        }
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target.classList.contains('modal')) {
-                closeModal();
+    // Scroll effects for header
+    function setupScrollEffects() {
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
+    }
 
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initAnimations();
+    // Modal functions
+    function openModal(type) {
+        closeModal();
+        if (type === 'login') {
+            document.getElementById('loginModal').style.display = 'flex';
+        } else if (type === 'register') {
+            document.getElementById('registerModal').style.display = 'flex';
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('loginModal').style.display = 'none';
+        document.getElementById('registerModal').style.display = 'none';
+    }
+
+    function switchToRegister() {
+        closeModal();
+        openModal('register');
+    }
+
+    function switchToLogin() {
+        closeModal();
+        openModal('login');
+    }
+
+    // Real authentication functions
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        const password = this.querySelector('input[type="password"]').value;
+        loginUser(email, password);
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = this.querySelector('input[type="text"]').value;
+        const email = this.querySelector('input[type="email"]').value;
+        const password = this.querySelector('input[type="password"]').value;
+        registerUser(name, email, password);
+    });
+
+    function registerUser(name, email, password) {
+        // Validation
+        if (!name || !email || !password) {
+            showError('Барлық өрістерді толтырыңыз');
+            return;
+        }
+
+        if (password.length < 6) {
+            showError('Құпия сөз кемінде 6 таңбадан тұруы керек');
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            showError('Жарамды электрондық пошта енгізіңіз');
+            return;
+        }
+
+        // Check if user already exists
+        if (users.find(user => user.email === email)) {
+            showError('Бұл электрондық пошта бойынша тіркелгі бар');
+            return;
+        }
+
+        // Create new user
+        const newUser = {
+            id: Date.now().toString(),
+            name: name,
+            email: email,
+            password: password, // In real app, hash this!
+            createdAt: new Date().toISOString(),
+            boards: []
+        };
+
+        users.push(newUser);
+        localStorage.setItem('trello_users', JSON.stringify(users));
+        
+        // Auto login after registration
+        loginUser(email, password);
+    }
+
+    function loginUser(email, password) {
+        const user = users.find(u => u.email === email && u.password === password);
+        
+        if (!user) {
+            showError('Қате электрондық пошта немесе құпия сөз');
+            return;
+        }
+
+        currentUser = user;
+        localStorage.setItem('trello_current_user', JSON.stringify(user));
+        showApp();
+        closeModal();
+        showSuccessAnimation('Сәтті кірдіңіз!');
+    }
+
+    function logout() {
+        currentUser = null;
+        localStorage.removeItem('trello_current_user');
+        showAuth();
+        showSuccessAnimation('Сәтті шықтыңыз!');
+    }
+
+    function showApp() {
+        document.querySelector('.header').style.display = 'none';
+        document.querySelector('.hero').style.display = 'none';
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'none';
         });
-    </script>
+        
+        // Here you would show the actual app interface
+        // For now, just show success message
+        setTimeout(() => {
+            showSuccessAnimation('Trello Pro қосымшасына қош келдіңіз!');
+            // In real app, you would redirect to dashboard here
+        }, 1000);
+    }
+
+    function showAuth() {
+        document.querySelector('.header').style.display = 'block';
+        document.querySelector('.hero').style.display = 'block';
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'block';
+        });
+    }
+
+    // Utility functions
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    function showError(message) {
+        showNotification(message, 'error');
+    }
+
+    function showSuccessAnimation(message) {
+        showNotification(message, 'success');
+    }
+
+    function showNotification(message, type) {
+        // Remove existing notifications
+        const existingNotification = document.querySelector('.notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'error' ? '#FF5630' : '#36B37E'};
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            z-index: 3000;
+            animation: slideInRight 0.3s ease;
+            max-width: 300px;
+        `;
+        notification.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 20px;">${type === 'error' ? '❌' : '✅'}</span>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
+    // Add CSS for notifications
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            closeModal();
+        }
+    });
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initAnimations();
+    });
+</script>
 </body>
 </html>
