@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Функционал - Trello Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Стили из главной страницы */
+        :root {
+            --primary: #0052CC;
+            --primary-light: #4C9AFF;
+            --primary-dark: #0747A6;
+            --gradient-primary: linear-gradient(135deg, #0052CC 0%, #6554C0 100%);
+            --shadow-lg: 0 16px 32px rgba(9, 30, 66, 0.2);
+            --radius-lg: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-lg);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Артқа</a>
+        
+        <h1 style="font-size: 48px; text-align: center; margin-bottom: 20px;">🎯 Функционал</h1>
+        <p style="text-align: center; font-size: 20px; opacity: 0.9; margin-bottom: 50px;">
+            Trello Pro-ның күшті мүмкіндіктерімен танысыңыз
+        </p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>📋 Тапсырмаларды Басқару</h3>
+                <p>Карточкалар жүйесі арқылы тапсырмаларды оңай ұйымдастырыңыз</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>👥 Командалық Жұмыс</h3>
+                <p>Команда мүшелерімен бірге жұмыс істеп, тапсырмаларды бөлісіңіз</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📊 Бағандар Жүйесі</h3>
+                <p>Тапсырмаларды бағандар арқылы көріп, оларды жылжытыңыз</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🎯 Басымдылықтар</h3>
+                <p>Тапсырмаларға басымдылық белгілеп, маңыздыларды бірден көріңіз</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📅 Мерзімдер</h3>
+                <p>Тапсырмаларға мерзімдер белгілеп, дедлайндарды бақылаңыз</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🔔 Ескертулер</h3>
+                <p>Маңызды оқиғалар туралы уақытында хабардар болыңыз</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
