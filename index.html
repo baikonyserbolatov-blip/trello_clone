@@ -65,6 +65,20 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Glass Morphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--radius-lg);
+        }
+
+        .glass-dark {
+            background: rgba(23, 43, 77, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         /* Header */
         .header {
             position: fixed;
@@ -315,390 +329,6 @@
             transform: translateY(-2px);
         }
 
-        /* App Interface Styles */
-        .app-interface {
-            display: none;
-            min-height: 100vh;
-            background: var(--primary);
-        }
-
-        .app-header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .app-nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .workspace {
-            padding: 40px 24px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .workspace-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .workspace-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: white;
-            margin: 0;
-        }
-
-        .boards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .board-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .board-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .board-card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .board-card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* Board View */
-        .board-view {
-            display: none;
-            min-height: 100vh;
-            background: var(--primary);
-            padding: 80px 20px 20px;
-        }
-
-        .board-container {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .board-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 32px;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        .board-title {
-            font-size: 28px;
-            font-weight: 800;
-            color: white;
-            flex: 1;
-        }
-
-        .board-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: 13px;
-            border-radius: var(--radius-md);
-        }
-
-        /* Columns */
-        .columns-container {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            overflow-x: auto;
-            padding: 20px;
-            min-height: 600px;
-        }
-
-        .column {
-            min-width: 300px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: var(--radius-lg);
-            padding: 20px;
-        }
-
-        .column-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .column-title {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: 16px;
-        }
-
-        .cards-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            min-height: 100px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 16px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--primary);
-            cursor: grab;
-            transition: all 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateX(4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .card.dragging {
-            opacity: 0.6;
-            transform: rotate(5deg);
-        }
-
-        .card-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-
-        .card-description {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 12px;
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .add-card-btn {
-            width: 100%;
-            padding: 12px;
-            background: transparent;
-            border: 2px dashed var(--border);
-            border-radius: var(--radius-md);
-            color: var(--muted);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-top: 12px;
-        }
-
-        .add-card-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: rgba(0, 82, 204, 0.05);
-        }
-
-        .add-column {
-            min-width: 280px;
-            background: rgba(255, 255, 255, 0.5);
-            border: 2px dashed rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .add-column:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            max-width: 480px;
-            width: 90%;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-        }
-
-        .modal-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--muted);
-            padding: 4px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 12px;
-            justify-content: flex-end;
-            margin-top: 24px;
-        }
-
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--success);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-            z-index: 3000;
-            animation: slideInRight 0.3s ease;
-            max-width: 300px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-
         /* Floating Elements */
         .floating-elements {
             position: absolute;
@@ -731,6 +361,398 @@
                 transform: translate(-100px, 100px) rotate(270deg);
             }
         }
+
+        /* Features Section */
+        .section {
+            padding: 120px 24px;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(36px, 4vw, 52px);
+            margin-bottom: 80px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 48px 32px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            transition: left 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 24px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Boards Preview */
+        .boards-preview {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 120px 24px;
+            border-radius: var(--radius-xl);
+            margin: 0 24px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .board-mockup {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .board-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 24px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .board-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .columns-container {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-light) transparent;
+        }
+
+        .columns-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .columns-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .columns-container::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+
+        .column {
+            min-width: 300px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .column:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .column-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--border);
+        }
+
+        .column-title {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 18px;
+        }
+
+        .cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            cursor: grab;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            transition: left 0.3s ease;
+        }
+
+        .card:hover::before {
+            left: 0;
+        }
+
+        .card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tag-high { background: #FFEBE6; color: #DE350B; }
+        .tag-medium { background: #E6FCFF; color: #008DA6; }
+        .tag-low { background: #E3FCEF; color: #006644; }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: modalEnter 0.3s ease;
+        }
+
+        @keyframes modalEnter {
+            from {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+            }
+            to {
+                opacity: 1;
+                backdrop-filter: blur(10px);
+            }
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            max-width: 440px;
+            width: 90%;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: modalContentEnter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes modalContentEnter {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* App Container */
+        .app-container {
+            display: none;
+            min-height: 100vh;
+            background: var(--gradient-hero);
+            padding-top: 80px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .columns-container {
+                flex-direction: column;
+            }
+
+            .column {
+                min-width: 100%;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden { display: none; }
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mt-40 { margin-top: 40px; }
 
         /* Particle Effects */
         .particles {
@@ -766,19 +788,6 @@
                 opacity: 0;
             }
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .columns-container {
-                flex-direction: column;
-            }
-            .column {
-                min-width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -786,125 +795,159 @@
     <div class="animated-bg"></div>
     <div class="particles" id="particles"></div>
 
-    <!-- Landing Page -->
-    <div id="landingPage">
-        <!-- Header -->
-        <header class="header" id="header">
-            <div class="nav-container">
-                <a href="#" class="logo">
-                    <div class="logo-icon">T</div>
-                    Trello Pro
-                </a>
-                
-                <nav class="nav-links">
-                    <a href="features.html" class="nav-link">Функционал</a>
-                    <a href="solutions.html" class="nav-link">Шешімдер</a>
-                    <a href="pricing.html" class="nav-link">Бағалар</a>
-                    <a href="programming.html" class="nav-link active">Бағдарламалау</a>
-                    <a href="help.html" class="nav-link">Көмек</a>
-                </nav>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">T</div>
+                Trello Pro
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#" class="nav-link">Функционал</a>
+                <a href="#" class="nav-link">Шешімдер</a>
+                <a href="#" class="nav-link">Бағалар</a>
+                <a href="#" class="nav-link active">Бағдарламалау</a>
+                <a href="#" class="nav-link">Көмек</a>
+            </nav>
 
-                <div class="auth-buttons">
-                    <button class="btn btn-outline" onclick="openModal('login')">Кіру</button>
-                    <button class="btn btn-primary" onclick="openModal('register')">Тіркелу</button>
-                </div>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" onclick="openModal('login')">Кіру</button>
+                <button class="btn btn-primary" onclick="openModal('register')">Тіркелу</button>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="floating-elements" id="floatingElements"></div>
-            <div class="hero-content">
-                <h1>Жобаларды Басқарудың Жаңа Дәуірі</h1>
-                <p>Trello Pro - бұл сіздің командаңызды біріктіретін, жобаларды жеңілдететін және нәтижелерді көбейтетін интеллектуалды платформа</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-hero btn-white" onclick="openModal('register')">
-                        🚀 Тегін бастау
-                    </button>
-                    <button class="btn btn-hero btn-transparent" onclick="showDemo()">
-                        📹 Демо көру
-                    </button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- App Interface -->
-    <div id="appInterface" class="app-interface">
-        <!-- App Header -->
-        <header class="app-header">
-            <div class="app-nav">
-                <div class="logo" style="color: var(--primary);">
-                    <div class="logo-icon">T</div>
-                    Trello Pro
-                </div>
-                
-                <div class="user-menu">
-                    <div class="user-avatar" id="userAvatar">U</div>
-                    <button class="btn btn-outline btn-sm" onclick="logout()" style="border-color: var(--primary); color: var(--primary);">
-                        Шығу
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <!-- Workspace -->
-        <div id="workspace" class="workspace">
-            <div class="workspace-header">
-                <h1 class="workspace-title">Менің жұмыс кеңістігім</h1>
-                <button class="btn btn-primary" onclick="showCreateBoardModal()">
-                    + Жаңа тақта
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements" id="floatingElements"></div>
+        <div class="hero-content">
+            <h1>Жобаларды Басқарудың Жаңа Дәуірі</h1>
+            <p>Trello Pro - бұл сіздің командаңызды біріктіретін, жобаларды жеңілдететін және нәтижелерді көбейтетін интеллектуалды платформа</p>
+            <div class="hero-buttons">
+                <button class="btn btn-hero btn-white" onclick="openModal('register')">
+                    🚀 Тегін бастау
+                </button>
+                <button class="btn btn-hero btn-transparent">
+                    📹 Демо көру
                 </button>
             </div>
+        </div>
+    </section>
 
-            <div class="boards-grid" id="boardsGrid">
-                <!-- Boards will be dynamically added here -->
+    <!-- Features Section -->
+    <section class="section">
+        <h2 class="section-title">Неліктен Trello Pro?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Интеллектуалды Тапсырмалар</h3>
+                <p>AI көмегімен тапсырмаларды автоматты түрде ұйымдастырыңыз және оңтайландырыңыз</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Нақты Уақыттағы Әрекеттесу</h3>
+                <p>Команда мүшелерімен бірге жұмыс істеп, өзгерістерді бірден көріңіз</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Терең Аналитика</h3>
+                <p>Жобалардың орындалуын бақылап, өнімділікті арттыру бойынша шешім қабылдаңыз</p>
             </div>
         </div>
+    </section>
 
-        <!-- Board View -->
-        <div id="boardView" class="board-view">
-            <div class="board-container">
-                <div class="board-header">
-                    <h1 class="board-title" id="currentBoardTitle">Тақта атауы</h1>
-                    <div class="board-actions">
-                        <button class="btn btn-outline btn-sm" onclick="showWorkspace()">
-                            ← Артқа
-                        </button>
-                        <button class="btn btn-primary btn-sm" onclick="showAddColumnModal()">
-                            + Баған қосу
-                        </button>
+    <!-- Boards Preview -->
+    <section class="section">
+        <div class="boards-preview glass">
+            <h2 class="section-title">Қуатты Мүмкіндіктер</h2>
+            <div class="board-mockup">
+                <div class="board-header glass">
+                    <div class="board-title">🚀 Бағдарламалау Жобасы 2024</div>
+                </div>
+                <div class="columns-container">
+                    <div class="column">
+                        <div class="column-header">
+                            <div class="column-title">📋 Жоспарланған</div>
+                        </div>
+                        <div class="cards-list">
+                            <div class="card">
+                                <div class="card-title">AI интеграциясын әзірлеу</div>
+                                <div class="card-meta">
+                                    <span class="tag tag-high">🚨 МАҢЫЗДЫ</span>
+                                    <span>👨‍💻 Азамат</span>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-title">Мобильді қосымша интерфейсі</div>
+                                <div class="card-meta">
+                                    <span class="tag tag-medium">⚡ ОРТАША</span>
+                                    <span>👩‍💻 Айгүл</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="column-header">
+                            <div class="column-title">⚡ Орындалуда</div>
+                        </div>
+                        <div class="cards-list">
+                            <div class="card">
+                                <div class="card-title">Негізгі платформаны жасау</div>
+                                <div class="card-meta">
+                                    <span class="tag tag-high">🚨 МАҢЫЗДЫ</span>
+                                    <span>✅ 75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="column-header">
+                            <div class="column-title">✅ Аяқталған</div>
+                        </div>
+                        <div class="cards-list">
+                            <div class="card">
+                                <div class="card-title">Дизайн жобасы</div>
+                                <div class="card-meta">
+                                    <span>📅 12.12.2024</span>
+                                    <span>👩‍🎨 Сания</span>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-title">Техникалық талдау</div>
+                                <div class="card-meta">
+                                    <span>📅 10.12.2024</span>
+                                    <span>👨‍💼 Бауыржан</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="columns-container" id="columnsContainer">
-                    <!-- Columns will be dynamically added here -->
-                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Auth Modals -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Жүйеге Кіру</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
+                <p class="text-muted">Trello Pro әлеміне қош келдіңіз</p>
             </div>
             <form id="loginForm">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Электрондық пошта" required>
+                    <input type="email" class="form-control" placeholder="📧 Электрондық пошта" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Құпия сөз" required>
+                    <input type="password" class="form-control" placeholder="🔒 Құпия сөз" required>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Кіру</button>
                     <button type="button" class="btn btn-outline" onclick="closeModal()">Бас тарту</button>
                 </div>
             </form>
-            <div style="text-align: center; margin-top: 20px; color: var(--muted);">
-                Тіркелгіңіз жоқ па? <a href="#" onclick="switchToRegister()" style="color: var(--primary);">Тіркелу</a>
+            <div class="form-footer">
+                Тіркелгіңіз жоқ па? <a href="#" onclick="switchToRegister()">Тіркелу</a>
             </div>
         </div>
     </div>
@@ -913,417 +956,38 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Тіркелу</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
+                <p class="text-muted">Жаңа тіркелгі жасау</p>
             </div>
             <form id="registerForm">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Аты-жөні" required>
+                    <input type="text" class="form-control" placeholder="👤 Аты-жөні" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Электрондық пошта" required>
+                    <input type="email" class="form-control" placeholder="📧 Электрондық пошта" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Құпия сөз" required>
+                    <input type="password" class="form-control" placeholder="🔒 Құпия сөз" required>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Тіркелу</button>
                     <button type="button" class="btn btn-outline" onclick="closeModal()">Бас тарту</button>
                 </div>
             </form>
-            <div style="text-align: center; margin-top: 20px; color: var(--muted);">
-                Тіркелгіңіз бар ма? <a href="#" onclick="switchToLogin()" style="color: var(--primary);">Кіру</a>
+            <div class="form-footer">
+                Тіркелгіңіз бар ма? <a href="#" onclick="switchToLogin()">Кіру</a>
             </div>
-        </div>
-    </div>
-
-    <!-- Board Modals -->
-    <div id="createBoardModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Жаңа тақта құру</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
-            </div>
-            <form id="createBoardForm" onsubmit="event.preventDefault(); createBoard()">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="boardNameInput" placeholder="Тақта атауы" required>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Құру</button>
-                    <button type="button" class="btn btn-outline" onclick="closeModal()">Бас тарту</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="addColumnModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Жаңа баған қосу</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
-            </div>
-            <form id="addColumnForm" onsubmit="event.preventDefault(); addColumn()">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="columnNameInput" placeholder="Баған атауы" required>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Қосу</button>
-                    <button type="button" class="btn btn-outline" onclick="closeModal()">Бас тарту</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="addCardModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Жаңа карточка қосу</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
-            </div>
-            <form id="addCardForm" onsubmit="event.preventDefault(); addCard()">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="cardTitleInput" placeholder="Карточка атауы" required>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="cardDescInput" placeholder="Сипаттама" rows="3"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Қосу</button>
-                    <button type="button" class="btn btn-outline" onclick="closeModal()">Бас тарту</button>
-                </div>
-            </form>
         </div>
     </div>
 
     <script>
-        // Data management
-        let users = JSON.parse(localStorage.getItem('trello_users')) || [];
-        let currentUser = null;
-        let currentBoard = null;
-        let currentColumnForCard = null;
-
-        // Initialize app
-        function initApp() {
-            checkAuthStatus();
-            setupScrollEffects();
+        // Initialize animations and effects
+        function initAnimations() {
             createFloatingElements();
             createParticles();
+            setupScrollEffects();
         }
 
-        // Check authentication status
-        function checkAuthStatus() {
-            const savedUser = localStorage.getItem('trello_current_user');
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-                showAppInterface();
-            }
-        }
-
-        // Authentication functions
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            const password = this.querySelector('input[type="password"]').value;
-            loginUser(email, password);
-        });
-
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const password = this.querySelector('input[type="password"]').value;
-            registerUser(name, email, password);
-        });
-
-        function registerUser(name, email, password) {
-            if (!name || !email || !password) {
-                showError('Барлық өрістерді толтырыңыз');
-                return;
-            }
-
-            if (users.find(user => user.email === email)) {
-                showError('Бұл пошта бойынша тіркелгі бар');
-                return;
-            }
-
-            const newUser = {
-                id: Date.now().toString(),
-                name: name,
-                email: email,
-                password: password,
-                createdAt: new Date().toISOString(),
-                boards: []
-            };
-
-            users.push(newUser);
-            localStorage.setItem('trello_users', JSON.stringify(users));
-            loginUser(email, password);
-        }
-
-        function loginUser(email, password) {
-            const user = users.find(u => u.email === email && u.password === password);
-            
-            if (!user) {
-                showError('Қате пошта немесе құпия сөз');
-                return;
-            }
-
-            currentUser = user;
-            localStorage.setItem('trello_current_user', JSON.stringify(user));
-            closeModal();
-            showAppInterface();
-            showSuccess('Сәтті кірдіңіз!');
-        }
-
-        function logout() {
-            currentUser = null;
-            localStorage.removeItem('trello_current_user');
-            showLandingPage();
-            showSuccess('Сәтті шықтыңыз!');
-        }
-
-        // Interface navigation
-        function showLandingPage() {
-            document.getElementById('landingPage').style.display = 'block';
-            document.getElementById('appInterface').style.display = 'none';
-        }
-
-        function showAppInterface() {
-            document.getElementById('landingPage').style.display = 'none';
-            document.getElementById('appInterface').style.display = 'block';
-            document.getElementById('userAvatar').textContent = currentUser.name[0].toUpperCase();
-            renderBoards();
-        }
-
-        function showWorkspace() {
-            document.getElementById('workspace').style.display = 'block';
-            document.getElementById('boardView').style.display = 'none';
-        }
-
-        function showBoard(boardId) {
-            currentBoard = currentUser.boards.find(b => b.id === boardId);
-            if (!currentBoard) return;
-
-            document.getElementById('currentBoardTitle').textContent = currentBoard.title;
-            document.getElementById('workspace').style.display = 'none';
-            document.getElementById('boardView').style.display = 'block';
-            renderColumns();
-        }
-
-        // Board management
-        function showCreateBoardModal() {
-            document.getElementById('boardNameInput').value = '';
-            document.getElementById('createBoardModal').style.display = 'flex';
-        }
-
-        function createBoard() {
-            const name = document.getElementById('boardNameInput').value;
-            if (!name) return;
-
-            const board = {
-                id: Date.now().toString(),
-                title: name,
-                createdAt: new Date().toISOString(),
-                columns: [
-                    { id: '1', title: '📋 Жоспарланған', cards: [] },
-                    { id: '2', title: '⚡ Орындалуда', cards: [] },
-                    { id: '3', title: '✅ Аяқталған', cards: [] }
-                ]
-            };
-
-            currentUser.boards.push(board);
-            saveUserData();
-            closeModal();
-            renderBoards();
-            showBoard(board.id);
-        }
-
-        function renderBoards() {
-            const grid = document.getElementById('boardsGrid');
-            grid.innerHTML = '';
-
-            if (currentUser.boards.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 60px; background: rgba(255,255,255,0.1); border-radius: 16px; color: white;">
-                        <h3 style="margin-bottom: 16px;">Тақталар жоқ</h3>
-                        <p style="margin-bottom: 24px; opacity: 0.8;">Бірінші тақтаңызды жасаңыз</p>
-                        <button class="btn btn-primary" onclick="showCreateBoardModal()">Тақта құру</button>
-                    </div>
-                `;
-                return;
-            }
-
-            currentUser.boards.forEach(board => {
-                const totalCards = board.columns.reduce((sum, col) => sum + col.cards.length, 0);
-                const boardElement = document.createElement('div');
-                boardElement.className = 'board-card';
-                boardElement.onclick = () => showBoard(board.id);
-                
-                boardElement.innerHTML = `
-                    <div>
-                        <div class="board-card-title">${board.title}</div>
-                        <div class="board-card-meta">
-                            <span>${board.columns.length} баған</span>
-                            <span>${totalCards} карточка</span>
-                        </div>
-                    </div>
-                `;
-                
-                grid.appendChild(boardElement);
-            });
-        }
-
-        // Column management
-        function showAddColumnModal() {
-            document.getElementById('columnNameInput').value = '';
-            document.getElementById('addColumnModal').style.display = 'flex';
-        }
-
-        function addColumn() {
-            const name = document.getElementById('columnNameInput').value;
-            if (!name) return;
-
-            const column = {
-                id: Date.now().toString(),
-                title: name,
-                cards: []
-            };
-
-            currentBoard.columns.push(column);
-            saveUserData();
-            closeModal();
-            renderColumns();
-        }
-
-        function showAddCardModal(columnId) {
-            currentColumnForCard = columnId;
-            document.getElementById('cardTitleInput').value = '';
-            document.getElementById('cardDescInput').value = '';
-            document.getElementById('addCardModal').style.display = 'flex';
-        }
-
-        function addCard() {
-            const title = document.getElementById('cardTitleInput').value;
-            const description = document.getElementById('cardDescInput').value;
-            if (!title) return;
-
-            const column = currentBoard.columns.find(c => c.id === currentColumnForCard);
-            if (column) {
-                const card = {
-                    id: Date.now().toString(),
-                    title: title,
-                    description: description,
-                    createdAt: new Date().toISOString()
-                };
-
-                column.cards.push(card);
-                saveUserData();
-                closeModal();
-                renderColumns();
-            }
-        }
-
-        function renderColumns() {
-            const container = document.getElementById('columnsContainer');
-            container.innerHTML = '';
-
-            currentBoard.columns.forEach(column => {
-                const columnElement = document.createElement('div');
-                columnElement.className = 'column';
-                columnElement.innerHTML = `
-                    <div class="column-header">
-                        <div class="column-title">${column.title}</div>
-                    </div>
-                    <div class="cards-list">
-                        ${column.cards.map(card => `
-                            <div class="card" draggable="true">
-                                <div class="card-title">${card.title}</div>
-                                ${card.description ? `<div class="card-description">${card.description}</div>` : ''}
-                                <div class="card-footer">
-                                    <div class="card-meta">
-                                        <span>${new Date(card.createdAt).toLocaleDateString('kk-KZ')}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <button class="add-card-btn" onclick="showAddCardModal('${column.id}')">
-                        + Карточка қосу
-                    </button>
-                `;
-                container.appendChild(columnElement);
-            });
-
-            // Add column button
-            const addColumnElement = document.createElement('div');
-            addColumnElement.className = 'column add-column';
-            addColumnElement.innerHTML = `<button class="btn btn-outline" onclick="showAddColumnModal()" style="border: none; background: none; color: inherit;">+ Баған қосу</button>`;
-            container.appendChild(addColumnElement);
-        }
-
-        // Utility functions
-        function saveUserData() {
-            const users = JSON.parse(localStorage.getItem('trello_users') || '[]');
-            const userIndex = users.findIndex(u => u.email === currentUser.email);
-            if (userIndex !== -1) {
-                users[userIndex] = currentUser;
-                localStorage.setItem('trello_users', JSON.stringify(users));
-                localStorage.setItem('trello_current_user', JSON.stringify(currentUser));
-            }
-        }
-
-        function showDemo() {
-            showSuccess('🎬 Демо режимі! Толық мүмкіндіктерді пайдалану үшін тіркеліңіз.');
-        }
-
-        // Modal functions
-        function openModal(type) {
-            closeModal();
-            document.getElementById(type + 'Modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = 'none';
-            });
-        }
-
-        function switchToRegister() {
-            closeModal();
-            openModal('register');
-        }
-
-        function switchToLogin() {
-            closeModal();
-            openModal('login');
-        }
-
-        // Notification functions
-        function showSuccess(message) {
-            showNotification(message, 'success');
-        }
-
-        function showError(message) {
-            showNotification(message, 'error');
-        }
-
-        function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.style.background = type === 'error' ? '#FF5630' : '#36B37E';
-            notification.innerHTML = `
-                <span style="font-size: 20px;">${type === 'error' ? '❌' : '✅'}</span>
-                <span>${message}</span>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOutRight 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-        }
-
-        // Animation functions
+        // Create floating elements in hero section
         function createFloatingElements() {
             const container = document.getElementById('floatingElements');
             const elements = ['🎯', '🚀', '⭐', '💫', '🔮', '🎨', '⚡', '💡'];
@@ -1343,8 +1007,10 @@
             }
         }
 
+        // Create particle background
         function createParticles() {
             const container = document.getElementById('particles');
+            
             for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -1357,8 +1023,10 @@
             }
         }
 
+        // Scroll effects for header
         function setupScrollEffects() {
             const header = document.getElementById('header');
+            
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 100) {
                     header.classList.add('scrolled');
@@ -1368,8 +1036,99 @@
             });
         }
 
-        // Initialize app
-        document.addEventListener('DOMContentLoaded', initApp);
+        // Modal functions
+        function openModal(type) {
+            closeModal();
+            if (type === 'login') {
+                document.getElementById('loginModal').style.display = 'flex';
+            } else if (type === 'register') {
+                document.getElementById('registerModal').style.display = 'flex';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('registerModal').style.display = 'none';
+        }
+
+        function switchToRegister() {
+            closeModal();
+            openModal('register');
+        }
+
+        function switchToLogin() {
+            closeModal();
+            openModal('login');
+        }
+
+        // Auth functions
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            simulateLogin();
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            simulateRegister();
+        });
+
+        function simulateLogin() {
+            // Simulate successful login
+            document.querySelector('.header').style.display = 'none';
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('appContainer').style.display = 'block';
+            closeModal();
+            
+            // Show success animation
+            showSuccessAnimation();
+        }
+
+        function simulateRegister() {
+            simulateLogin();
+        }
+
+        function showSuccessAnimation() {
+            // Create success animation
+            const successDiv = document.createElement('div');
+            successDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(255, 255, 255, 0.95);
+                padding: 40px;
+                border-radius: 20px;
+                text-align: center;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                z-index: 3000;
+                animation: successEnter 0.5s ease;
+            `;
+            successDiv.innerHTML = `
+                <div style="font-size: 60px; margin-bottom: 20px;">🎉</div>
+                <h3 style="color: #36B37E; margin-bottom: 10px;">Сәтті тіркелдіңіз!</h3>
+                <p>Trello Pro әлеміне қош келдіңіз</p>
+            `;
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 2000);
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                closeModal();
+            }
+        });
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initAnimations();
+        });
     </script>
 </body>
 </html>
